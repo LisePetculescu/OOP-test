@@ -27,7 +27,12 @@ function constructNameParts(fullname) {
     },
     getFullName(fullname) {
       if (this.hasMiddleName()) {
-        console.log("Fullname:", this.firstName, this.middleName, this.lastName);
+        console.log(
+          "Fullname:",
+          this.firstName,
+          this.middleName,
+          this.lastName
+        );
       } else {
         console.log("Fullname:", this.firstName, this.lastName);
       }
@@ -35,7 +40,7 @@ function constructNameParts(fullname) {
     hasMiddleName() {
       //   console.log("middlename boolean:", this.middleName !== undefined);
       return this.middleName !== undefined;
-    }
+    },
   };
   if (fullname) {
     // console.log("if:", fullname);
@@ -69,6 +74,8 @@ async function getJSON() {
 for (const student of studentArray) {
   studentArray2.push(constructNameParts(student.fullname));
 }
+
+console.log(getJSON());
 
 showAllNames();
 
