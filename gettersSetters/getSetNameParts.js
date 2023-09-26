@@ -3,7 +3,7 @@ function constructNameParts(fullName, age) {
     firstName: undefined,
     middleName: undefined,
     lastName: undefined,
-    age: 0,
+    _age: 0,
     set fullName(fullName) {
       const names = fullName.split(" ");
 
@@ -31,11 +31,14 @@ function constructNameParts(fullName, age) {
       }
     },
     set age(age) {
-      this.age = age;
+      this._age = age;
     },
     get age() {
+      return this._age;
+    },
+    checkAge() {
       if (!this.age) {
-        return this.age;
+        return `No age :(`;
       } else if (this.age < 18) {
         return `The student is ${this.age} and not old enough!`;
       } else {
@@ -51,5 +54,28 @@ function constructNameParts(fullName, age) {
 }
 
 const student = constructNameParts("Harry James Potter", 20);
-console.log("Age", student.age);
-console.log("Name", student.fullName);
+console.log("Age:", student.checkAge());
+console.log("Name:", student.fullName);
+
+// const student1 = {};
+Object.defineProperty(student, "hasMiddleName", { enumerable: false });
+
+for (const key in student) {
+  const element = student[key];
+  console.log(element);
+}
+
+// console.log(student);
+
+// const bøv = JSON.stringify(student);
+// console.log(bøv);
+
+// kan ændre property value, men ikke tilføje properties
+// Object.seal(student);
+
+// kan ikke ændre property value eller tilføje properties
+// Object.freeze(student);
+
+// student.test = "Lise";
+// student.age = 55;
+// console.log(student);

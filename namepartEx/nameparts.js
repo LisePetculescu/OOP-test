@@ -70,7 +70,7 @@ for (const student of studentArray) {
   studentArray2.push(constructNameParts(student.fullname));
 }
 
-// showAllNames();
+showAllNames();
 // constructNameParts("Lise Jensen")
 
 // showAllNames();
