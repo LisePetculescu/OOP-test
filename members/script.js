@@ -68,6 +68,7 @@ async function pushResultsToList() {
 
 function showResults(results) {
   results.sort((a, b) => a.time - b.time);
+  // results.sort((a, b) => a.date - b.date);
 
   const table = document.querySelector("table#results tbody");
   table.innerHTML = "";
@@ -78,7 +79,7 @@ function showResults(results) {
       <td>${result.memberId}</td>
       <td>${result.discipline}</td>
       <td>${result.type}</td>
-      <td>${result.time}</td>
+      <td>${result._time}</td>
     </tr>`;
 
     table.insertAdjacentHTML("beforeend", html);
